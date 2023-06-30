@@ -1,12 +1,19 @@
 const textInput = document.querySelector('#name-input');
 const textOutput = document.querySelector('#name-output');
 
-textInput.addEventListener("input", onTextOutput);
+textInput.addEventListener("input", handleInput);
 
-function onTextOutput(event) { 
-    let text = textInput.event.target.value.trim();
-    if (text === "") {
-        text = "Anonymous";
+// function handleInput() {
+//     if (textInput.value === "") {
+//         textOutput.textContent = "Anonymous";
+//     }
+//     textOutput.textContent = textInput.value;
+// }
+
+function handleInput(event) {
+    let contentInput = event.target.value.trim();
+    if (contentInput === "") {
+        contentInput = "Anonymous";
     }
-    textOutput.textContent = text;
+    textOutput.textContent = contentInput;
 }
