@@ -4,32 +4,29 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-// const inputElement = document.querySelector('input[type="number"]');
+const inputElement = document.querySelector('input[type="number"]');
 // console.dir(inputElement);
-// const amount = Number(inputElement.value);//the value will be a string, so we translate it into a number
 const btnCreate = document.querySelector('[data-create]');
-console.dir(btnCreate);
+// console.dir(btnCreate);
 const btnDestroy = document.querySelector('[data-destroy]');
-console.dir(btnDestroy);
+// console.dir(btnDestroy);
 const boxesDiv = document.querySelector('#boxes');
 
 btnCreate.addEventListener("click", handleCreate);
 btnDestroy.addEventListener("click", handleDestroy);
 
 function handleCreate() {
-  const inputElement = document.querySelector('input[type="number"]');
-  console.dir(inputElement);
   const amount = Number(inputElement.value);//the value will be a string, so we translate it into a number
   createBoxes(amount) 
 }
 
 function createBoxes(amount) {
-  let markup = [];
-  // const sizes = '30px';
+  let markup = '';
+  const boxSize = 30;
   for (let i = 0; i < amount; i++) {
-    const size = 30 + i * 10;
+    const sizes = boxSize + i * 10;
     const color = getRandomHexColor();
-    markup += `<div style="width: ${size}px; height: ${size}px; background-color: ${color}"><div/>`
+    markup +=`<div style="width: ${sizes}px; height: ${sizes}px; background-color: ${color}"></div>`;
   }
   boxesDiv.innerHTML = markup;
 }
